@@ -1,0 +1,14 @@
+<input type="text" [(ngModel)]="ServerName">
+<button [disabled]='!allowedButton' (click)="onCreateServer()"><!-- Property binding-->
+  Add Server
+</button>
+<!--<p>{{serverCreationStatus}}</p>-->
+<br><br>
+<div *ngIf="serverCreate; else noServer">Server create as : {{ServerName}}</div> <!-- We bound button as conditional to update input -->
+<ng-template #noServer><div>No server created!</div></ng-template>
+<br>
+<div *ngFor="let server of serverList">
+  {{server}}
+</div>
+<!--<hr>-->
+<!--<input type="text" (input)="onInputClick($event)">-->

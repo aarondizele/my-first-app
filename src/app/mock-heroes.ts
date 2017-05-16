@@ -4,7 +4,7 @@
 import { Hero } from './hero';
 
 export const HEROES: Hero[] = [ // We create a list of objects containing our class
-  //call export to use it somewhere
+  // call export to use it somewhere
   { id: 11, name: 'Mr. Nice' },
   { id: 12, name: 'Narco' },
   { id: 13, name: 'Bombasto' },

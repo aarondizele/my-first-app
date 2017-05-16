@@ -10,22 +10,20 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class HeroService {
 
-
   private heroesUrl = 'api/heroes'; // URL to web API
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http) {
-  }
+  constructor(private http: Http) {}
 
   //// Get getHeroes service original version
-  // getHeroes(): Hero[]{
+  // getHeroes(): Hero[]{ // Hero[] as interface
   //   return HEROES;
   // }
 
   /* Update for API */
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl)
-      .toPromise()
+      .toPromise() // convert observable to Promise
       .then(response => response.json().data as Hero[])
       .catch(this.handleError);
   }
@@ -91,8 +89,7 @@ export class HeroService {
   // getHero(id: number): Promise<Hero> {
   //   return this.getHeroes()
   //     .then(heroes => heroes.find(hero => hero.id === id));
-  //   //   .then(function(heroes){
-  //   //     heroes.find(function (hero) {
+  //   //   .then(heroes => heroes.find(hero)=>{
   //   //       hero.id === id
   //   //     })
   //   // })

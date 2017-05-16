@@ -1,0 +1,54 @@
+<main>
+  <!--<p>{{day | date}}</p>-->
+  <!--<p>{{day | date: 'shortDate' }}</p>-->
+  <!--<p>{{day | date: 'fullDate' }}</p>-->
+
+  <div *ngIf="!submitted; else formInfo">
+    <form [formGroup]="rForm" (ngSubmit)="userLogin(rForm.value)">
+      <div formGroupName="details">
+
+      <h3>Login</h3>
+      <label>Name : </label>
+      <input type="text" placeholder="Name" formControlName="name">
+      <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div>
+
+      <label>Description : </label>
+      <input type="text" placeholder="Description" formControlName="description">
+      <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">This field is required</div>
+      <label>Email : </label>
+      <input placeholder="Email" formControlName="email" email type="email">
+      <div class="alert" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">Email is required</div>
+      <label>Confirm Email : </label>
+      <input placeholder="Confirm Email" formControlName="confirm" email type="email">
+      <div class="alert" *ngIf="rForm.get('details').hasError('nomatch') && !rForm.controls['confirm'].valid && rForm.controls['confirm'].touched">Email must match</div>
+      <br><br>
+      <p>Minimum of 3 characters</p>
+      <label><input type="checkbox" name="validate" formControlName="validate" value="1"> On</label>
+      <input type="submit" value="Submit" [disabled]="!rForm.valid">
+      </div>
+    </form>
+  </div>
+
+ <ng-template #formInfo>
+   <h4>{{name}}</h4>
+   <p>{{ description }}</p>
+ </ng-template>
+
+</main>
+
+
+
+
+<!--<section>-->
+  <!--<form novalidate [formGroup]="form">-->
+    <!--<div formGroupName="details">-->
+      <!--<input type="text" formControlName="name"><br>-->
+      <!--<input type="text" formControlName="email"><br>-->
+      <!--<input type="text" formControlName="confirm"><br>-->
+      <!--<input type="text" formControlName="phone"><br>-->
+      <!--<input type="text" formControlName="address"><br>-->
+      <!--<input type="text" formControlName="postcode"><br>-->
+    <!--</div>-->
+    <!--<div formArrayName="pizzas"></div>-->
+  <!--</form>-->
+<!--</section>-->

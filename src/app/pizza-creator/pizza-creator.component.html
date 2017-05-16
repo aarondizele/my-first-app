@@ -1,0 +1,8 @@
+<button (click)="addPizzaGroup()" style="margin-bottom: 30px; border: none; padding: 10px 16px; background-color: deepskyblue; color: #FFF; cursor: pointer;">Add Pizza</button>
+
+<div *ngFor="let pizza of pizzas.controls; let i = index;">
+
+Pizza {{i+1}}
+
+<button (click)="removePizza(i)" style="margin-left: 50px; border: none; padding: 10px 16px; background-color: deepskyblue; color: #FFF; cursor: pointer;">Delete pizza</button>
+</div>

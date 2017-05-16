@@ -30,8 +30,8 @@ export class HeroDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.heroService.getHero(+params['id']))
-      .subscribe(hero => this.hero = hero);
+      .switchMap((params: Params) => this.heroService.getHero(+params['id'])) // + convert int to string
+      .subscribe(hero => this.hero = hero); // observable
   }
 
 

@@ -10,5 +10,5 @@
 <div *ngFor="let server of serverList">
   {{server}}
 </div>
-<!--<hr>-->
-<!--<input type="text" (input)="onInputClick($event)">-->
+<button class="animate" [@myAninamtion]="state" (click)="animateMe()">I will be animated</button>
+

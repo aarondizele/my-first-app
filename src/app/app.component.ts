@@ -9,20 +9,20 @@ export class AppComponent implements OnInit{
 
   title = 'Tour of Heroes';
   name = '';
-  serverId:number = 1241;
-  serverStatus:string = 'offline';
+  serverId: number = 1241;
+  serverStatus: string = 'offline';
 
-  constructor(){ // master state when page loaded
+  constructor() { // master state when page loaded
     this.serverStatus = Math.random() > 0.2 ? 'online' : 'offline';
   }
 
-  getServerStatus(){ // Is the method because we are in class, same concept with OOP Python
+  getServerStatus() { // Is the method because we are in class, same concept with OOP Python
     return this.serverStatus;
   }
 
-  getColor(){
+  getColor() {
     return this.serverStatus === 'online' ? 'green':'red';
   }
 
-  ngOnInit(){}
+  ngOnInit() {}
 }

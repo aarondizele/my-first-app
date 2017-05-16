@@ -1,10 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 
 @Component({
   // selector: '[app-server]',
   selector: 'app-server',
   templateUrl: './server.component.html',
-  styleUrls: ['./server.component.css']
+  styleUrls: ['./server.component.css'],
+  animations: [
+    trigger('myAninamtion', [
+      state('small', style({
+        transfom: 'scale(1)'
+      })),
+      state('large', style({
+        transform: 'scale(1.2)'
+      })),
+      transition('small <=> large', animate('300ms ease-in'))
+    ])
+  ]
 })
 export class ServerComponent implements OnInit {
 
@@ -14,6 +25,12 @@ export class ServerComponent implements OnInit {
   serverCreate = false; // Best practices for *ngIf
   serverList = ['UK Server','Finland Server998'];
 
+
+  state: string = 'small';
+
+  animateMe(): void {
+    this.state = (this.state === 'small' ? 'large' : 'small');
+  }
 
   constructor() {
     setTimeout(() => {
@@ -29,8 +46,7 @@ export class ServerComponent implements OnInit {
      this.serverCreate = true;
      this.serverCreationStatus = 'Server Activated! Name is ' + this.ServerName;
    }
-   onInputClick(event:any){
-    //  console.log(event)
-   }
+
+
 
 }

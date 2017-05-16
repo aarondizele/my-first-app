@@ -1,9 +1,9 @@
 <div id="search-component">
   <h4>Hero search</h4>
-  <input type="text" #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
+  <input type="text" #searchBox id="search-box" (keyup)="search(searchBox.value)"/> <!-- When type in keyboard-->
   <div>
     <div *ngFor="let hero of heroes | async"
-      (click)="gotoDetail(hero)" class="search-result">
+      (click)="gotoDetail(hero)" class="search-result"> <!-- Async to show Observable Hero[]-->
       {{hero.name}}
     </div>
   </div>
